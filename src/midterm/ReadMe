@@ -1,0 +1,157 @@
+------------------------------------------------------------------------------------------------------------------------------
+
+****************************************************PRE-PLANNING*************************************************************
+
+------------------------------------------------------------------------------------------------------------------------------
+
+MIDTERM
+
+MAIN MISSION >>> Discounts by products: input product ids and Output a receipt with discounts total and customer id.
+ 
+BRAINSTORMING >>>
+
+STARTUP - "hardcode" inputs(Product id, qty, Customer id)
+          Send it to POS Terminal
+                Send Productid and qty to LineItem
+                    Find Product from Product id 
+                    calculate subtotal from product.price and qty
+
+
+FLOW>>>>>>>>    STARTUP -> POST -> RECEIPT <-> LINEITEM <-> PRODUCT <-> DISCOUNT
+                
+
+OBJECTS >>>>>
+
+Product has a discount
+Discount interface 
+	QtyDiscount
+	FlatAmtDiscount
+	PerDiscount
+	NoDiscount
+Receipt has a collection of LineItem objects
+Receipt has a group total
+Receipt has a customer
+Receipt has a store
+
+inrterchangable Database - array()
+
+Customer
+
+LineItem has a Product
+LineItem has a qty
+LineItem has a subtotal
+
+OutputStrategy
+	ConsoleOutPut
+	JOptionPaneOutPut
+FormatStrategy
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+***************************************************LAB ACTIVITIES*************************************************************
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+• As a group we’ll begin planning the new Discount Strategy project which is your main homework (see below). 
+• We’ll start with the conceptual objects in the problem domain. We will make a list as a group. 
+  This is one of the most important tasks in this project. Not all will be used, for various reasons. 
+  But mainly we will choose what is needed based on the accuracy of the simulation we are trying to create. 
+  For example, we don’t need a BarCodeScanner because that would complicate things more than is necessary 
+  for this practice project. So instead we’ll hard-code those in, or you can use a Scanner object to get that from a customer. 
+  We also won’t need a CheckOutClerk object because the software will do all the work. 
+  These are just a few examples of what is not needed.  
+ 
+Question is, what IS needed? You must fully understand how department stores do their work, 
+  especially selling and discounting products and checking out purchases. We won’t process credit
+  cards or actually print anything on paper. But we will need to generate a receipt that could be printed 
+  and one that can only be seen on a video terminal, just like in the real world (we’ll use a JOptionPane for this GUI). 
+  Can you imagine creating a system like this that doesn’t have a “Receipt” object? That would be crazy. 
+  So think about the must have objects first, and worry about optional things like “Clerk” or “BarCodeScanneer”. 
+  It’s not that these objects are not important, it’s just that this program will be difficult enough with a small 
+  subset of what is possible. Using everything that is possible would just make the program more difficult. 
+ 
+You should also imagine that the store has a database (or file) where products and discounts, 
+  and customer information is stored. We won’t use the file or real database but we will fake one by creating a 
+  class that is a strategy object (to be replaced by a real database strategy object later) containing two arrays, 
+  one for customers and one for products. These arrays should be pre-populated with customers and products before 
+  you start using the program. And you should provide ways of adding new products and new customers and finding 
+  products and customers in these arrays. 
+ 
+Here are some rules: 
+
+  o We won’t use a barcode scanner or a clerk objects. 
+  o We won’t use credit cards or cash to complete a transaction. 
+  o We will assume that if a customer is using a Kohls credit card then their account 
+    number will be known and we’ll be able to lookup the customer name in our fake database; 
+    if not, we won’t know who the customer is because we won’t have that account number. 
+    We’ll assume the account number is provided as input if available, and null if not. 
+  o We will assume that for each product purchased the barcode number has been scanned and the product 
+    id and quantity is known. o We’ll assume all input is exclusively provided in the startup class. 
+  o We’ll assume the only output is a receipt. We’ll further assume that the receipt is displayed 
+    at the console, simulating a printed receipt, and also in a GUI, simulating a video terminal display 
+    just as it is in the real world. o We will assume that all discounts are by product only. 
+    This is different from the real world where discounts can also be by preferred customer, by store, 
+    by product category, etc. We are simplifying the rules to make this easier to program. 
+  o Common discounts by product include: percent off discount, flat amount discount, quantity discount and no discount. 
+  o The discount objects will be our low-level worker objects in the DIP. The product objects will be the high-level class 
+    that references a discount by abstractions. In other words, a product “has a” discount component. 
+  o All other best practices must be followed. 
+  o A new best practice is to follow the “creator pattern” which says that objects should be created where they are used. 
+  o We will be very aggressive in using the Single Responsibility Principle and the Principle of Least Knowledge. 
+  o We will be very aggressive in applying the DIP / Strategy Pattern to anything that varies. Examples of things that vary: 
+    output, discounts, databases, formatting of reports, reports (receipt is a  report). In this project input will not vary, 
+    it will be hard-coded into the startup class. o We will initialize any low-level objects by creating them in the startup 
+    class and passing them into our program code from there. 
+  o A major are of difficulty is passing raw data from object to object to object, until it reaches an object where the raw 
+    data can be used to create an object representing that data. Remember the creator pattern, which states 
+    that objects should be created where they are used. o Use the skeleton code technique learned today to figure 
+    out how objects should talk to each other. o Start working on the objects that have no dependencies first. Then work 
+    on the objects that depend on those. 
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+************************************************THINGS TO REMEMBER************************************************************
+
+------------------------------------------------------------------------------------------------------------------------------
+
+openClose - final getters
+Single Responsibility
+Encapsulation - Property, Method, Class
+validate your setters
+Principle of least knowledge - "You know about the car but not the engine."
+create objects where they are used.
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+
+***************************************************PROGRAMMING LAW************************************************************
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Generic Analysis is: 
+ 
+Identifying the problem and its requirements 
+ 
+ 
+2. Generic Design is: 
+ 
+Finding a conceptual solution to the problem 
+ 
+ 
+3. Object-oriented Analysis is: 
+ 
+Finding the conceptual objects in the problem domain 
+ 
+ 
+4. Object-oriented Design is: 
+ 
+Skillfully assigning responsibilities to objects 
+ 
+ 
+5. most important Object-oriented Programming (OOP) skill:
+ 
+Skillfully assigning responsibilities to objects
