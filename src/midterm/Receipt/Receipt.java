@@ -16,13 +16,13 @@ import midterm.Reports.Reporter;
 public class Receipt {
 
     Reporter reporter;
-    private ReceiptArrayofPurchasedProducts lineItem;
+    private LineItemData lineItem;
     private Customer customer;
     private BusinessInformation buisnessInformation;
     private String thankYouMessage;
-    private ReceiptArrayofPurchasedProducts raopp;
+    private LineItemData raopp;
 
-    public Receipt(Reporter reporter, ReceiptArrayofPurchasedProducts lineItem, BusinessInformation buisnessInformation, String thankYouMessage) {
+    public Receipt(Reporter reporter, LineItemData lineItem, BusinessInformation buisnessInformation, String thankYouMessage) {
         this.reporter = reporter;
         this.lineItem = lineItem;
         this.buisnessInformation = buisnessInformation;
@@ -61,11 +61,11 @@ public class Receipt {
         this.reporter = reporter;
     }
 
-    public final ReceiptArrayofPurchasedProducts getLineItem() {
+    public final LineItemData getLineItem() {
         return lineItem;
     }
 
-    public void setLineItem(ReceiptArrayofPurchasedProducts lineItem) {
+    public void setLineItem(LineItemData lineItem) {
         this.lineItem = lineItem;
     }
 
@@ -75,11 +75,11 @@ public class Receipt {
 
     }
 
-    public ReceiptArrayofPurchasedProducts getRaopp() {
+    public LineItemData getRaopp() {
         return raopp;
     }
 
-    public void setRaopp(ReceiptArrayofPurchasedProducts raopp) {
+    public void setRaopp(LineItemData raopp) {
         this.raopp = raopp;
     }
 

@@ -11,12 +11,12 @@ import midterm.Reports.Reporter;
  *
  * @author jerem
  */
-public class ReceiptArrayofPurchasedProducts {
+public class LineItemData {
 
     private Reporter reporter;
     private LineItem[] lineItems = new LineItem[0];// lineItemData
 
-    public ReceiptArrayofPurchasedProducts(Reporter reporter) {
+    public LineItemData(Reporter reporter) {
         this.reporter = reporter;
     }
 

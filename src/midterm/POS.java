@@ -30,7 +30,7 @@ public class POS {
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     private Receipt r;
     private String thankYouMessage;
-    private ReceiptArrayofPurchasedProducts s = new ReceiptArrayofPurchasedProducts(reports);
+    private LineItemData s = new LineItemData(reports);
 
     //FUNCTIONS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     
@@ -118,11 +118,11 @@ public class POS {
         this.r = r;
     }
 
-    public final ReceiptArrayofPurchasedProducts getS() {
+    public final LineItemData getS() {
         return s;
     }
 
-    public void setS(ReceiptArrayofPurchasedProducts s) {
+    public void setS(LineItemData s) {
         this.s = s;
     }
 

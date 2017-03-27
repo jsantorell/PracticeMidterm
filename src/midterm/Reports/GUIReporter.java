@@ -33,7 +33,7 @@ public class GUIReporter implements Reporter {
     }
 
     @Override
-    public void printReceipt(ReceiptArrayofPurchasedProducts lI, Customer c, BusinessInformation bI, String thankYouMessage) {
+    public void printReceipt(LineItemData lI, Customer c, BusinessInformation bI, String thankYouMessage) {
 
         //Could probably make this its own method.<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
         double total = lI.addUpTotalBeforeTax();

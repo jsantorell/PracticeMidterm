@@ -8,7 +8,7 @@ package midterm.Reports;
 import midterm.BusinessInformation.*;
 import midterm.Customer.Customer;
 import midterm.Database.Product;
-import midterm.Receipt.ReceiptArrayofPurchasedProducts;
+import midterm.Receipt.LineItemData;
 import midterm.Receipt.LineItem;
 
 /**
@@ -21,5 +21,5 @@ public interface Reporter {
 
     public abstract void getLineItems(LineItem p);
 
-    public abstract void printReceipt(ReceiptArrayofPurchasedProducts lI, Customer c, BusinessInformation bI, String thankYouMessage);
+    public abstract void printReceipt(LineItemData lI, Customer c, BusinessInformation bI, String thankYouMessage);
 }
