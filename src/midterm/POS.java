@@ -44,13 +44,18 @@ public class POS {
         p.putDatabaseTogether(pID, pI);
     }
 
-    public final void productScanned(String productID, int qty) {
+    public final void productScanned(String productID, int qty) throws IllegalArgumentException{
 
+        if(productID == null || productID.isEmpty()){
+        
+        throw new IllegalArgumentException("No product ID was entered.");
+        }
+        
         s.addLineItem(new LineItem(pID, productID, qty));
 
     }
 
-    public final void customerInformationReceved(int customerID, String name) {
+    public final void customerInformationReceived(int customerID, String name) {
         r = new Receipt(reports, s, b, thankYouMessage);
         r.populateCustomerDataForTransaction(customerID, name);
     }

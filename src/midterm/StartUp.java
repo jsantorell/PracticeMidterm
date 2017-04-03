@@ -26,12 +26,16 @@ public class StartUp {
         //Transaction
         //To make a transaction, we should be able to scan/enter a productID, qty and get that product back with price, etc.
         //Furthermore we will need discounts associated to the trans.action.
+        try{
         pos.productScanned("AG1487", 1);
         pos.productScanned("AG1488", 4);
         pos.productScanned("AG1489", 3);
-
+        }
+        catch(IllegalArgumentException iae){
+            throw new IllegalArgumentException(iae.getMessage());
+        }
         //Customer
-        pos.customerInformationReceved(1234567892, "Jane Smith");
+        pos.customerInformationReceived(1234567892, "Jane Smith");
 
         //End of Customer Creation
         //Print Receipt
