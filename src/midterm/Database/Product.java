@@ -18,7 +18,10 @@ public class Product {
     private double productPrice;
     private Discount discount;
 
-    public Product(String productID, String productName, double productPrice, Discount discount) {
+    public Product(String productID, String productName, double productPrice, Discount discount) throws IllegalArgumentException{
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         this.productID = productID;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -29,7 +32,10 @@ public class Product {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(String productID) throws IllegalArgumentException{
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         this.productID = productID;
     }
 

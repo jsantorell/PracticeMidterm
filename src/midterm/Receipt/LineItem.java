@@ -20,23 +20,38 @@ public class LineItem {
     private int quantity;
     private Discount productDiscount;
 
-    public LineItem(ProductInventoryDatabase pID, String productID, int quantity) {
+    public LineItem(ProductInventoryDatabase pID, String productID, int quantity) throws IllegalArgumentException {
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         this.pID = pID;
         this.productID = productID;
         this.quantity = quantity;
 
     }
 
-    public final String getDiscountAmountInDollars() {
-        double subtotal = pID.retrieveSubtotal(productID, quantity) - (pID.retrieveSubtotal(productID, quantity) * pID.retrieveDiscount(productID).getDiscount());
-        double discountAmount = pID.retrieveSubtotal(productID, quantity) - subtotal;
-        DecimalFormat df = new DecimalFormat("#.00");
-        String formattedSubtotal = df.format(discountAmount);
+    public final String getDiscountAmountInDollars() throws IllegalArgumentException {
+       
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        } else {
+            try {
+                double subtotal = pID.retrieveSubtotal(productID, quantity) - (pID.retrieveSubtotal(productID, quantity) * pID.retrieveDiscount(productID).getDiscount());
+                double discountAmount = pID.retrieveSubtotal(productID, quantity) - subtotal;
+                DecimalFormat df = new DecimalFormat("#.00");
+                String formattedSubtotal = df.format(discountAmount);
+                return formattedSubtotal;
+            } catch (IllegalArgumentException iae) {
+                throw new IllegalArgumentException(iae.getMessage());
+            }
 
-        return formattedSubtotal;
+        }
     }
 
-    public final String getSubtotal() {
+    public final String getSubtotal() throws IllegalArgumentException{
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         double subtotal = pID.retrieveSubtotal(productID, quantity) - (pID.retrieveSubtotal(productID, quantity) * pID.retrieveDiscount(productID).getDiscount());
 
         DecimalFormat df = new DecimalFormat("#.00");
@@ -61,7 +76,11 @@ public class LineItem {
         return productID;
     }
 
-    public void setProductID(String productID) {
+    public void setProductID(String productID) throws IllegalArgumentException {
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
         this.productID = productID;
     }
 

@@ -66,6 +66,7 @@ public class Receipt {
     }
 
     public void setLineItem(LineItemData lineItem) {
+        
         this.lineItem = lineItem;
     }
 
@@ -80,6 +81,7 @@ public class Receipt {
     }
 
     public void setRaopp(LineItemData raopp) {
+        
         this.raopp = raopp;
     }
 

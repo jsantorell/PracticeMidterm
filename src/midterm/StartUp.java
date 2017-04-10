@@ -6,7 +6,7 @@
 package midterm;
 
 import midterm.BusinessInformation.BusinessInformation;
-import midterm.Discount.*;
+
 
 /**
  *
@@ -27,13 +27,24 @@ public class StartUp {
         //To make a transaction, we should be able to scan/enter a productID, qty and get that product back with price, etc.
         //Furthermore we will need discounts associated to the trans.action.
         try{
-        pos.productScanned("AG1487", 1);
-        pos.productScanned("AG1488", 4);
-        pos.productScanned("AG1489", 3);
+        pos.productScanned("null", 1);
         }
         catch(IllegalArgumentException iae){
             throw new IllegalArgumentException(iae.getMessage());
         }
+        try{
+        pos.productScanned("AG1488", 4);
+        }
+        catch(IllegalArgumentException iae){
+            throw new IllegalArgumentException(iae.getMessage());
+        }
+        try{
+        pos.productScanned("AG1489", 4);
+        }
+        catch(IllegalArgumentException iae){
+            throw new IllegalArgumentException(iae.getMessage());
+        }
+        
         //Customer
         pos.customerInformationReceived(1234567892, "Jane Smith");
 

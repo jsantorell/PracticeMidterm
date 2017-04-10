@@ -20,7 +20,11 @@ public class LineItemData {
         this.reporter = reporter;
     }
 
-    public void addLineItem(LineItem p) {
+    public void addLineItem(LineItem p) throws IllegalArgumentException{
+        if(p.getProductID() == null || p.getProductID().isEmpty()){
+        
+            throw new IllegalArgumentException();
+        }
 
         LineItem[] tmpArray = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tmpArray, 0, lineItems.length);

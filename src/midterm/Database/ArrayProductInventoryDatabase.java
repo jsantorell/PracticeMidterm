@@ -23,7 +23,9 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
 
     @Override
     public void addProduct(String id, String name, double price, Discount discount) {
-
+if (id== null || id.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         Product[] tmpArray = new Product[products.length + 1];
         System.arraycopy(products, 0, tmpArray, 0, products.length);
         products = tmpArray;
@@ -33,7 +35,9 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
 
     @Override
     public final double retrievePrice(String productID) {
-
+if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         {
 
             double price = 0.0;
@@ -51,7 +55,9 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
 
     @Override
     public final double retrieveSubtotal(String productID, int quantity) {
-
+        if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         double price = 0.0;
         for (Product p : products) {
             if (p.getProductID().equalsIgnoreCase(productID)) {
@@ -65,7 +71,9 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
 
     @Override
     public final String retrieveProductName(String productID) {
-
+if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         String name = "";
         for (Product p : products) {
             if (p.getProductID().equalsIgnoreCase(productID)) {
@@ -79,7 +87,9 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
 
     @Override
     public final Discount retrieveDiscount(String productID) {
-
+if (productID == null || productID.isEmpty()) {
+            throw new IllegalArgumentException("No product ID provided");
+        }
         Discount discount = null;
         for (Product p : products) {
             if (p.getProductID().equalsIgnoreCase(productID)) {

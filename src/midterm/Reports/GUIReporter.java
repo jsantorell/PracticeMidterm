@@ -19,8 +19,10 @@ import midterm.Database.Product;
 public class GUIReporter implements Reporter {
 
     @Override
-    public final void getProductsList(Product p) {
-
+    public final void getProductsList(Product p) throws IllegalArgumentException {
+        if (p.getProductID() == null || p.getProductID().isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         JOptionPane.showMessageDialog(null, p.getProductID() + " " + p.getProductName() + " " + p.getProductPrice());
 
     }

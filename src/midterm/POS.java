@@ -19,7 +19,7 @@ public class POS {
     private BusinessInformation b;
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    private Reporter reports = new GUIReporter(); // change how receipts are output
+    private Reporter reports = new ConsoleReporter(); // change how receipts are output
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     //Set Database
@@ -128,6 +128,7 @@ public class POS {
     }
 
     public void setS(LineItemData s) {
+        
         this.s = s;
     }
 
