@@ -44,7 +44,7 @@ public class POS {
         p.putDatabaseTogether(pID, pI);
     }
 
-    public final void productScanned(String productID, int qty) throws IllegalArgumentException{
+    public final void productScanned(String productID, int qty) throws IllegalArgumentException, NullPointerException{
 
         if(productID == null || productID.isEmpty()){
         

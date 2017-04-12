@@ -27,22 +27,23 @@ public class StartUp {
         //To make a transaction, we should be able to scan/enter a productID, qty and get that product back with price, etc.
         //Furthermore we will need discounts associated to the trans.action.
         try{
-        pos.productScanned("null", 1);
+        pos.productScanned(null, 1);
         }
-        catch(IllegalArgumentException iae){
-            throw new IllegalArgumentException(iae.getMessage());
+        catch(IllegalArgumentException | NullPointerException iae){
+            System.out.println(iae.getMessage());
         }
+
         try{
         pos.productScanned("AG1488", 4);
         }
         catch(IllegalArgumentException iae){
-            throw new IllegalArgumentException(iae.getMessage());
+            System.out.println(iae.getMessage());
         }
         try{
         pos.productScanned("AG1489", 4);
         }
         catch(IllegalArgumentException iae){
-            throw new IllegalArgumentException(iae.getMessage());
+            System.out.println(iae.getMessage());
         }
         
         //Customer

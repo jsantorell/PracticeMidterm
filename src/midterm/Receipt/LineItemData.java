@@ -20,7 +20,7 @@ public class LineItemData {
         this.reporter = reporter;
     }
 
-    public void addLineItem(LineItem p) throws IllegalArgumentException{
+    public void addLineItem(LineItem p) throws IllegalArgumentException, NullPointerException{
         if(p.getProductID() == null || p.getProductID().isEmpty()){
         
             throw new IllegalArgumentException();
@@ -29,8 +29,11 @@ public class LineItemData {
         LineItem[] tmpArray = new LineItem[lineItems.length + 1];
         System.arraycopy(lineItems, 0, tmpArray, 0, lineItems.length);
         lineItems = tmpArray;
+        try{
         lineItems[lineItems.length - 1] = new LineItem(p.getpID(), p.getProductID(), p.getQuantity());
-
+        }catch(NullPointerException npe){
+        throw new NullPointerException();
+        }
     }
 
     public final void getLineItems() {

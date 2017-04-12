@@ -22,7 +22,7 @@ public class ArrayProductInventoryDatabase implements ProductInventoryDatabase {
     }
 
     @Override
-    public void addProduct(String id, String name, double price, Discount discount) {
+    public void addProduct(String id, String name, double price, Discount discount) throws IllegalArgumentException{
 if (id== null || id.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
         }
@@ -34,7 +34,7 @@ if (id== null || id.isEmpty()) {
     }
 
     @Override
-    public final double retrievePrice(String productID) {
+    public final double retrievePrice(String productID) throws IllegalArgumentException{
 if (productID == null || productID.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
         }
@@ -54,7 +54,7 @@ if (productID == null || productID.isEmpty()) {
     }
 
     @Override
-    public final double retrieveSubtotal(String productID, int quantity) {
+    public final double retrieveSubtotal(String productID, int quantity) throws IllegalArgumentException{
         if (productID == null || productID.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
         }
@@ -70,7 +70,7 @@ if (productID == null || productID.isEmpty()) {
     }
 
     @Override
-    public final String retrieveProductName(String productID) {
+    public final String retrieveProductName(String productID) throws IllegalArgumentException{
 if (productID == null || productID.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
         }
@@ -86,7 +86,7 @@ if (productID == null || productID.isEmpty()) {
     }
 
     @Override
-    public final Discount retrieveDiscount(String productID) {
+    public final Discount retrieveDiscount(String productID) throws IllegalArgumentException{
 if (productID == null || productID.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
         }
@@ -102,7 +102,7 @@ if (productID == null || productID.isEmpty()) {
     }
 
     @Override
-    public final void getProducts() {
+    public final void getProducts() throws IllegalArgumentException{
 
         for (Product p : products) {
 

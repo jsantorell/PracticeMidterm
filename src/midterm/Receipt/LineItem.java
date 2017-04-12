@@ -25,12 +25,17 @@ public class LineItem {
             throw new IllegalArgumentException();
         }
         this.pID = pID;
+        try{
         this.productID = productID;
+        }catch(IllegalArgumentException iae){
+        throw new IllegalArgumentException();
+        
+        }
         this.quantity = quantity;
 
     }
 
-    public final String getDiscountAmountInDollars() throws IllegalArgumentException {
+    public final String getDiscountAmountInDollars() throws IllegalArgumentException , NullPointerException {
        
         if (productID == null || productID.isEmpty()) {
             throw new IllegalArgumentException("No product ID provided");
@@ -43,6 +48,9 @@ public class LineItem {
                 return formattedSubtotal;
             } catch (IllegalArgumentException iae) {
                 throw new IllegalArgumentException(iae.getMessage());
+            }
+            catch (NullPointerException npe){
+            throw new NullPointerException (npe.getMessage());
             }
 
         }
